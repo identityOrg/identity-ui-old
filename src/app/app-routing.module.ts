@@ -1,7 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {DashboardComponent} from './dashboard/dashboard.component';
-import {LoginComponent} from './login/login.component';
 import {ClientComponent} from './client/client.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {UserComponent} from './user/user.component';
@@ -12,14 +11,14 @@ import {CreateClientComponent} from './client/create-client/create-client.compon
 import {EditClientComponent} from './client/edit-client/edit-client.component';
 import {DetailClientComponent} from './client/detail-client/detail-client.component';
 import {ScopeComponent} from './scope/scope.component';
-import {LoginGuard} from './routing/login.guard';
-import {LogoutGuard} from './routing/logout.guard';
+import {LoginGuard} from './security/login.guard';
+import {LogoutGuard} from './security/logout.guard';
 import {LogoutComponent} from './logout/logout.component';
+import {CallbackComponent} from './security/callback/callback.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
   {path: 'dashboard', component: DashboardComponent, canActivate: [LoginGuard]},
-  {path: 'login', component: LoginComponent},
   {
     path: 'client', children: [
       {path: '', pathMatch: 'full', component: ClientComponent, canActivate: [LoginGuard]},
@@ -38,7 +37,8 @@ const routes: Routes = [
   },
   {path: 'scope', component: ScopeComponent, canActivate: [LoginGuard]},
   {path: 'logout', component: LogoutComponent, canActivate: [LogoutGuard]},
-  {path: '**', component: PageNotFoundComponent}
+  {path: 'callback', component: CallbackComponent},
+  {path: '**', component: PageNotFoundComponent, canActivate: [LoginGuard]}
 ];
 
 @NgModule({

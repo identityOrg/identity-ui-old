@@ -5,7 +5,6 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MaterialImportModule} from './material-import/material-import.module';
-import {LoginComponent} from './login/login.component';
 import {NavigationComponent} from './navigation/navigation.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {ClientComponent} from './client/client.component';
@@ -20,11 +19,11 @@ import {EditClientComponent} from './client/edit-client/edit-client.component';
 import {DetailClientComponent} from './client/detail-client/detail-client.component';
 import {ServiceModule} from './service/service.module';
 import { LogoutComponent } from './logout/logout.component';
+import { CallbackComponent } from './security/callback/callback.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     NavigationComponent,
     DashboardComponent,
     ClientComponent,
@@ -37,7 +36,8 @@ import { LogoutComponent } from './logout/logout.component';
     CreateClientComponent,
     EditClientComponent,
     DetailClientComponent,
-    LogoutComponent
+    LogoutComponent,
+    CallbackComponent
   ],
   imports: [
     BrowserModule,

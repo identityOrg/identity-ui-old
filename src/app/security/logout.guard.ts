@@ -12,7 +12,6 @@ export class LogoutGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     this.loginService.logout();
-    this.router.navigate(['login']);
-    return false;
+    return true;
   }
 }
