@@ -2,8 +2,8 @@ import {Injectable} from '@angular/core';
 import {environment} from '../../environments/environment';
 import {Observable, throwError} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
-import {Profile} from '../security/profile';
-import {Token} from '../security/token';
+import {Profile} from '../model/profile';
+import {Token} from '../model/token';
 import {tap} from 'rxjs/operators';
 
 @Injectable()

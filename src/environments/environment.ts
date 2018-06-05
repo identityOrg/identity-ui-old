@@ -11,7 +11,8 @@ export const environment = {
     scope: ['scope1'],
     response_type: 'token',
     redirectUri: 'http://localhost:4200/callback'
-  }
+  },
+  apiBase: 'http://localhost:8080'
 };
 
 /*
