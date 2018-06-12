@@ -11,7 +11,7 @@ export class ClientService {
   constructor(private http: HttpClient, private loginService: LoginService) {
   }
 
-  listUsers(criteria: Client): Observable<Client[]> {
+  listClients(criteria: Client): Observable<Client[]> {
     const param = new HttpParams();
     if (criteria) {
       if (criteria.clientId) {

@@ -31,6 +31,6 @@ export class UserService {
       }
     }
     return this.http.get<User[]>(environment.apiBase + '/api/user',
-      {headers: this.loginService.getSecurityHeader(), params: param});
+      {headers: this.loginService.getSecurityHeader(), params: param, observe: 'body'});
   }
 }

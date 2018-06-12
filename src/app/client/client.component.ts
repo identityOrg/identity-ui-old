@@ -15,16 +15,13 @@ export class ClientComponent implements OnInit {
   }
 
   ngOnInit() {
-    return this.clientService.listUsers(null)
+    return this.clientService.listClients(null)
       .subscribe(data => {
         this.clients = data;
       }, err => {
         this.clients = [];
         console.log(err);
       });
-  }
-
-  getAllClients() {
   }
 
 }

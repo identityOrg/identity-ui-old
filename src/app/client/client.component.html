@@ -38,10 +38,10 @@
                 <td>{{c.clientName}}</td>
                 <td>{{c.clientId}}</td>
                 <td>{{c.status}}</td>
-                <td><a class="btn btn-info" routerLink="/" href="#"><i
+                <td><a class="btn btn-info" [routerLink]="['/client', 'detail', c.clientId]" href="#"><i
                   class="fa fa-search"></i> Detail</a>
                 </td>
-                <td><a class="btn btn-warning" routerLink="/" href="#"><i
+                <td><a class="btn btn-warning" [routerLink]="['/client', 'edit', c.clientId]" href="#"><i
                   class="fa fa-edit"></i> Edit</a></td>
               </tr>
               </tbody>
@@ -58,12 +58,5 @@
       </div>
     </div>
   </div>
-  <script>
-    $(document).ready(function () {
-      $('#dataTables-example').DataTable({
-        responsive: true
-      });
-    });
-  </script>
   <!-- /.container-fluid -->
 </div>

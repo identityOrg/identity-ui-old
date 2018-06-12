@@ -1,4 +1,4 @@
-import {Authority} from '../security/authority';
+import {Authority} from './authority';
 
 export interface User {
   username: string;
