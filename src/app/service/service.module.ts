@@ -4,6 +4,7 @@ import {LoginService} from './login.service';
 import {HttpClientModule} from '@angular/common/http';
 import {UserService} from './user.service';
 import {ClientService} from './client.service';
+import {ScopeService} from './scope.service';
 
 @NgModule({
   imports: [
@@ -12,7 +13,7 @@ import {ClientService} from './client.service';
   ],
   exports: [],
   declarations: [],
-  providers: [LoginService, UserService, ClientService]
+  providers: [LoginService, UserService, ClientService, ScopeService]
 })
 export class ServiceModule {
 }

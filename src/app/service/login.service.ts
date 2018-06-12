@@ -27,13 +27,30 @@ export class LoginService {
   }
 
   isLoggedIn() {
-    return this.getToken() != null;
+    const token = this.getToken();
+    if (token) {
+      if (token.expiry) {
+
+        const timeNow = new Date();
+        if (timeNow < token.expiry) {
+          return true;
+        } else {
+          this.logout();
+          return false;
+        }
+      } else {
+        return true;
+      }
+    }
+    return false;
   }
 
   getToken(): Token {
     const tokenString = sessionStorage.getItem('token');
     if (tokenString) {
-      return JSON.parse(tokenString);
+      const savedToken = JSON.parse(tokenString) as Token;
+      savedToken.expiry = new Date(savedToken.expiry);
+      return savedToken;
     } else {
       return null;
     }
@@ -64,6 +81,11 @@ export class LoginService {
       this.errorDescription = respObj.error_description;
       return throwError('login failed');
     } else {
+      if (respObj.expires_in) {
+        const expDate = new Date();
+        expDate.setSeconds(expDate.getSeconds() + +(respObj.expires_in));
+        respObj.expiry = expDate;
+      }
       this.setToken(respObj);
       return this._http.get<Profile>(environment.oauth.profileUrl, {headers: this.getSecurityHeader()})
         .pipe(
